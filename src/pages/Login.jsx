@@ -6,7 +6,7 @@ const Login = () => {
     const [email,setEmail] = React.useState("");
     const [password,setPassword] = React.useState("");
     const [eror,setEror] = React.useState("");
-    const {user,logIn} = UserAuth();
+    const {logIn} = UserAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async (e) =>{
