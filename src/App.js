@@ -1,14 +1,26 @@
-import Navbar from './components/Navbar';
-import { Routes,Route } from 'react-router-dom';
-import Home from './pages/Home';
+import Navbar from "./components/Navbar";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import { AuthContextProvider } from "./context/AuthContext.js";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Account from "./pages/Account";
+import CheckUser from "./components/CheckUser";
 
 function App() {
-  return (<>
-  <Navbar/>
-  <Routes>
-    <Route path='/' element={<Home/>} />
-  </Routes>
-  </>);
+  return (
+    <>
+      <AuthContextProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/account" element={<CheckUser><Account /></CheckUser>} />
+        </Routes>
+      </AuthContextProvider>
+    </>
+  );
 }
 
 export default App;
